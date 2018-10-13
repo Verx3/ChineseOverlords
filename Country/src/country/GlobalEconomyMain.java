@@ -129,9 +129,11 @@ public class GlobalEconomyMain {
 	public void printAllCountries() {
 		
 		for (int i=0; i<5 ; i++) {
-		if( countries[i] != null ) {System.out.println(countries[i]);}
+			if( countries[i] != null ) {
+				System.out.println(countries[i]);
+			}
 		}
-		}
+	}
 		
 	
 	
@@ -140,8 +142,11 @@ public class GlobalEconomyMain {
 		
 		Country foundCountry = retrieveCountry(countryName);
 	
-		if (foundCountry != null ) {System.out.println(foundCountry);}
-		else {System.out.println("Error: "+countryName +" is not registered.");}
+		if (foundCountry != null ) {
+			System.out.println(foundCountry);
+		}else {
+			System.out.println("Error: "+countryName +" is not registered.");
+		}
 
 
 		
@@ -164,12 +169,13 @@ public class GlobalEconomyMain {
 		Country foundCountry = retrieveCountry(countryName);
 		if (foundCountry== null) {System.out.println("Error: "+countryName +" is not registered.");}
 		else {
-		 System.out.println("Enter the amount you want to inject");
-		 double amountInj = input.nextDouble();
-		 input.nextLine();
-		 foundCountry.injectMoney(amountInj);
-		 if (amountInj>0) {
-		 System.out.println(countryName +" new GDP is "+ foundCountry.GDP);}
+			System.out.println("Enter the amount you want to inject");
+		    double amountInj = input.nextDouble();
+		 	input.nextLine();
+		 	foundCountry.injectMoney(amountInj);
+			if (amountInj>0) {
+				System.out.println(countryName +" new GDP is "+ foundCountry.GDP);
+			}
 		}
 	}
 	
@@ -178,13 +184,15 @@ public class GlobalEconomyMain {
 		Country foundCountry = retrieveCountry(countryName);
 		if (foundCountry== null) {System.out.println("Error: "+countryName +" is not registered.");}
 		else {
-		System.out.println("Enter the amount you want to pay");
-		 double amountDebt = input.nextDouble();
-		 input.nextLine();
-		 foundCountry.payDebt(amountDebt);
-		 if (amountDebt>0 && amountDebt<GDP) {
-		 System.out.println(countryName +" new GDP is "+ foundCountry.GDP);
-		}}}
+			System.out.println("Enter the amount you want to pay");
+			 double amountDebt = input.nextDouble();
+			 input.nextLine();
+			 foundCountry.payDebt(amountDebt);
+			 if (amountDebt>0 && amountDebt<GDP) {
+				System.out.println(countryName +" new GDP is "+ foundCountry.GDP);
+			 }
+		}
+	}
 	
 	
 	public void editInfo() {
@@ -192,12 +200,12 @@ public class GlobalEconomyMain {
 		String countryName = readCountryName();	
 		 Country foundCountry = retrieveCountry(countryName);
 		 if (foundCountry!= null) {
-		System.out.println(" Please choose an option. ");
-		System.out.println("1. Change a country's name.");
-		System.out.println("2. Change a country's population.");
+			System.out.println(" Please choose an option. ");
+			System.out.println("1. Change a country's name.");
+			System.out.println("2. Change a country's population.");
 		
-		int optionNum = input.nextInt();
-		input.nextLine();
+			int optionNum = input.nextInt();
+			input.nextLine();
 		
 		         if (optionNum == 1) {
 			      System.out.println("Enter the country's new name. ");
@@ -212,13 +220,14 @@ public class GlobalEconomyMain {
 				 foundCountry.setPopulation(newPopulation);
 				 System.out.println("The country's new population is: "+ newPopulation);
 				
-		           } 
+		         }else {
+		         	System.out.println("This is not a valid choice. ");
+		         }
 		         
-		         else {System.out.println("This is not a valid choice. ");}
-		         
+		 }else {
+		 	System.out.println("Error: "+countryName +" is not registered.");
 		 }
-		 else {System.out.println("Error: "+countryName +" is not registered.");}
-		 }
+	}
 		
 	
 	public static void main(String[] args) {		
